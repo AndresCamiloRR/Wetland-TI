@@ -1,0 +1,2 @@
+El javadoc solo se pudo generar sobre las clases Date y EnvironmentalManagementPlan ya que javadoc no es capaz de ubicar
+la ruta de cada clase por lo que suelta error en todas las asociaciones entre ellas :D
