@@ -55,6 +55,8 @@ public class WetLand {
 	
 	private Specie [] speciesLiving = new Specie[MAX_SPECIES];
 	
+	private int numOfMaintenance=0;
+	
 
 	//Constructor
 	
@@ -209,21 +211,13 @@ public class WetLand {
 		
 	}
 	
-	public int NumOfMaintenance(){
-		
-		int numOfMaintenance=0;
-		
-		for(int counter=0; counter<MAX_EVENTS; counter++){
-			
-			if(events[counter]!=null&&events[counter].equals("mantenimiento")){
-				
-				numOfMaintenance++;
-				
-			}
-			
-		}
-		
+	public int getNumOfMaintenance(){
 		return numOfMaintenance;
+		
+	}
+	
+	public void addNumOfMaintenance(){
+		numOfMaintenance++;
 		
 	}
 	
@@ -245,6 +239,27 @@ public class WetLand {
 		}
 		
 		return floraNum;
+		
+	}
+	
+	public int FaunaCount(){
+		
+		int faunaNum=0;
+		
+		for (int counter=0; counter<MAX_SPECIES; counter++){
+			
+			if(speciesLiving[counter]!=null){
+				
+			
+				if (speciesLiving[counter].getType()==(Flora_Fauna.AVE) || speciesLiving[counter].getType()==(Flora_Fauna.MAMIFERO)|| speciesLiving[counter].getType()==(Flora_Fauna.ESPECIE_ACUATICA)){
+				
+					faunaNum++;
+				}
+			}
+			
+		}
+		
+		return faunaNum;
 		
 	}
 	

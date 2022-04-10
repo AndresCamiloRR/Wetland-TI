@@ -112,7 +112,7 @@ public class Specie {
 			
 			if(habitats[counter]!=null){
 				
-				habitatsWhereIsLocated+= "\n" + habitats[counter].getName();
+				habitatsWhereIsLocated+= "\n" + habitats[counter].getName() + "\n";
 				
 			}
 			

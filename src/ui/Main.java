@@ -43,12 +43,12 @@ public class Main{
 		System.out.println(" Bienvenido, que desea hacer? \n"+
 		"(1) Crear un humedal \n"+
 		"(2) Registrar una nueva especie en un humedal \n"+
-		"(3) Registrar un evento en el humeda \n"+
-		"(4) Cantidad de mantenimientos que recibieron los humedales en algun año \n"+
+		"(3) Registrar un evento en el humedal \n"+
+		"(4) Cantidad de mantenimientos que recibieron los humedales en algun ano \n"+
 		"(5) Humedal con menos especies de flora \n"+
 		"(6) Humedales en los que se encuentra una especie \n"+
 		"(7) Informacion sobre los humedales \n"+
-		"(8) Humedal con mayor cantidad de animales \n"+
+		"(8) Humedal con mayor cantidad de fauna \n"+
 		"(0) Salir"
 				);
 		option= scan.nextInt();
@@ -83,7 +83,7 @@ public class Main{
 			AllWetlandsInfo();
 			break;
 		case 8:
-			
+			WetLandMostFauna();
 			break;
 		default:
 			System.out.println("Error, opción no válida");
@@ -142,7 +142,7 @@ public class Main{
 			
 			dagma.addWetland(name, urbanOrRural, publicOrPrivate, area, photoUrl, nameOfZone, protectedArea, description, percentageFilled);
 		
-			System.out.println("El humedal ha sido añadido");
+			System.out.println("El humedal ha sido anadido");
 			
 		}else{
 			
@@ -154,7 +154,7 @@ public class Main{
 	public void createSpecie(){
 		
 		int wereToAdd;
-		int indexSpecie;
+		String specieName;
 		
 		do{
 			System.out.println("Elija una opcion\n (1) Anadir Especie a base de datos general \n (2) Anadir Especie a Wetland");
@@ -212,31 +212,28 @@ public class Main{
 			System.out.println("Ingrese el nombre del Wetland al que desea anadir la especie");
 			
 			System.out.println(dagma.WetlandsAvailable());
-			
-			scan.next();
+
 			wetlandName = scan.next();
 				
 			if(dagma.FindWetland(wetlandName)!=-1){
 				
-				System.out.println("Ingrese el numero de la especie que desea añadir");
+				System.out.println("Ingrese el nombre de la especie que desea anadir");
 					
 				System.out.println(dagma.SpeciesAvailable());
 					
-				indexSpecie = scan.nextInt();
-					
-				indexSpecie--;
+				specieName = scan.next();
 				
-				if(dagma.SpecieExist(indexSpecie)==false){
+				if(dagma.FindSpecie(specieName)==-1){
 					
 					System.out.println("La especie no existe");
 					
 				}else{
 					
-					if(indexSpecie>=0&&dagma.EmptyIndexSpecie()!=-1){
+					if(dagma.EmptyIndexSpecie()!=-1){
 						
-						dagma.addSpecieToWetland(wetlandName, indexSpecie);
+						dagma.addSpecieToWetland(wetlandName, specieName);
 						
-						System.out.println("La especie ha sido añadida");
+						System.out.println("La especie ha sido anadida");
 						
 					}else{
 					
@@ -335,7 +332,7 @@ public class Main{
 			
 		if(index!=-1){
 			
-			System.out.println( wetlandName+ " ha tenido " + dagma.NumOfMaintenanceForWetland(index) + " mantenimientos");
+			System.out.println( wetlandName+ " ha tenido " + dagma.getMaintenanceFromWetland(index) + " mantenimientos");
 			
 		}else{
 			
@@ -353,27 +350,31 @@ public class Main{
 	
 	public void HabitatSearcher(){
 		
-		int specieIndex=-1;
+		String specieName;
 		
-		System.out.println("Ingrese el numero de la especie que desea consultar sus habitats");
+		System.out.println("Ingrese el nombre de la especie que desea consultar sus habitats");
 		
 		System.out.println(dagma.SpeciesAvailable());
 		
-		specieIndex=scan.nextInt();
+		specieName=scan.next();
 		
-		specieIndex--;
-		
-		if(dagma.SpecieExist(specieIndex)){
+		if(dagma.FindSpecie(specieName)!=-1){
 			
-			System.out.println(dagma.SpecieHabitatSearcher(specieIndex));
+			System.out.println(dagma.SpecieHabitatSearcher(dagma.FindSpecie(specieName)));
 			
 		}else{
 			
-			System.out.println("Lo sentimos pero la especie no existe");
+			System.out.println("Jodete");
 			
 		}
 		
 		
+		
+	}
+	
+	public void WetLandMostFauna(){
+		
+		System.out.println(dagma.WetLandMostFauna());
 		
 	}
 	

@@ -174,21 +174,7 @@ public class Dagma {
 	
 	public String SpecieHabitatSearcher(int specieIndex){
 		
-		String habitatsWhereIsLocated = "";
-		
-		for(int counter = 0; counter<MAX_SPECIES; counter++){
-			
-			if(allSpecies[counter]!=null){
-				
-				habitatsWhereIsLocated = allSpecies[counter].HabitatSearcher();
-				
-			}else{
-				
-				habitatsWhereIsLocated = "La especie no fue encontrada";
-				
-			}
-			
-		}
+		String habitatsWhereIsLocated = allSpecies[specieIndex].HabitatSearcher();
 		
 		return habitatsWhereIsLocated;
 	}
@@ -371,6 +357,20 @@ public class Dagma {
 		newEvent = new Event(event, date, owner, cost, description);
 		
 		allWetLands[index].addEvent(newEvent);
+		
+		if(event.equals("mantenimiento")){
+			
+			allWetLands[index].addNumOfMaintenance();
+			
+		}
+	}
+	
+	public int getMaintenanceFromWetland(int indexWetland){
+		
+		int	numOfMaintenance = allWetLands[indexWetland].getNumOfMaintenance();
+		
+		return numOfMaintenance;
+		
 	}
 	
 	//WetlandsAvailable
@@ -402,25 +402,18 @@ public class Dagma {
 	
 	//addSpecieToWetland
 	
-	public void addSpecieToWetland(String name, int specieIndex){
+	public void addSpecieToWetland(String name, String specieName){
 		
-		int indexWetland;
+		int indexWetland=-1;
 		indexWetland = FindWetland(name);
-		Specie newSpecieWetland = allSpecies[specieIndex];
+		
+		int indexSpecie=-1;
+		indexSpecie=FindSpecie(specieName);
 			
-			allWetLands[indexWetland].addSpecie(newSpecieWetland);
+			allWetLands[indexWetland].addSpecie(allSpecies[indexSpecie]);
 			
-			allSpecies[specieIndex].addHabitat(allWetLands[indexWetland]);	
+			allSpecies[indexSpecie].addHabitat(allWetLands[indexWetland]);	
 		
-	}
-	
-	public int NumOfMaintenanceForWetland(int wetlandIndex){
-		
-		int numOfMaintenance=0;
-		
-		numOfMaintenance = allWetLands[wetlandIndex].NumOfMaintenance();
-		
-		return numOfMaintenance;
 	}
 	
 	/**
@@ -456,6 +449,34 @@ public class Dagma {
 		return lessFlora;
 	}
 	
+	public String WetLandMostFauna (){
+		
+		String mostFauna="";
+		int wetlandFostFauna=-1;
+		int actualFauna=-1;
+		
+		for(int counter=0; counter<MAX_WETLANDS; counter++){
+			
+			if(allWetLands[counter]!=null){
+				
+				if(allWetLands[counter].FaunaCount()<actualFauna||actualFauna==-1){
+					actualFauna=allWetLands[counter].FaunaCount();
+					wetlandFostFauna=counter;
+					mostFauna="El humedal con mas fauna es: " + allWetLands[counter].getName() + " con un total de: " + actualFauna + " fauna";
+				}
+			}
+			
+		}
+		
+		if(mostFauna.equals("")){
+			
+			mostFauna="No hay ningun humedal registrado";
+			
+		}
+		
+		return mostFauna;
+	}
+	
 	public String toString(){
 		
 		String msg="";
@@ -479,20 +500,4 @@ public class Dagma {
 		return msg;
 		
 	}
-	
-	
-	/**
-	* Description: search for the wetland with most fauna 
-	* @return MostFauna WetLand, returns the wetland with most fauna
-	*/
-	
-	
-	/** To continue
-	public WetLand WetLandMostFauna (){
-		
-		WetLand MostFauna;
-		
-		
-		return MostFauna;
-	}*/
 }
