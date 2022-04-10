@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"model","c":"Date","l":"Date(int, int, int)","u":"%3Cinit%3E(int,int,int)"},{"p":"model","c":"Date","l":"getDay()"},{"p":"model","c":"Date","l":"getMonth()"},{"p":"model","c":"Date","l":"getYear()"},{"p":"model","c":"Date","l":"setDay(int)"},{"p":"model","c":"Date","l":"setMonth(int)"},{"p":"model","c":"Date","l":"setYear(int)"}];updateSearchResults();
