@@ -267,7 +267,7 @@ public class WetLand {
 	
 	public String toString(){
 		
-		return "WetLand Info \n" + "the wetland name is: " + name + "\n the name of the zone were is located is: " + nameOfZone + "\n the zone is " + urbanOrRural + "\n It is a " + publicOrPrivate + " zone" + "\n has an area of: " + area + "\n the photo URL is: " + photoUrl + "\n protected area: " + protectedArea;
+		return "WetLand Info \n" + "Nombre: " + name + "\n Nombre de la zona en que se encuentra: " + nameOfZone + "\n La zona es " + urbanOrRural + "\n Es una zona " + publicOrPrivate + "\n Tiene un area de: " + area + "\n La URL de la foto es: " + photoUrl + "\n Es una zona protegida?: " + protectedArea + "\n Numero de flora: " + FloraCount() + "\n Numero de fauna: " + FaunaCount();
 		
 	}
 
