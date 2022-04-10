@@ -16,13 +16,13 @@ public class ManagementPlan {
 	* description is a attribute (global variable) of String type that contains the objectives, parts and description of the plan
 	* */
 	private String description;
-	
-	//Constructor
-	
+		
 	/**
-	* Description: create a ManagementPlan object 
-	* <b> pos:</b> percentageFulfilled and description got asign
-	* @param percentageFulfilled double, description String
+	* Description: Constructor create a ManagementPlan object 
+	* <b> pos:</b> percentageFulfilled --> got asign
+	* <b> pos:</b> description --> got asign
+	* @param percentageFulfilled double --> it must be initialized 
+	* @param description String --> it must be initialized 
 	*/
 	
 	public ManagementPlan(String description, double percentageFulfilled) {
@@ -51,5 +51,16 @@ public class ManagementPlan {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
+	/**
+	* Method that produces a String with the information of the plan
+	* @return String with the plan info
+	*/
+	
+	public String toString(){
+		
+		return "\n El plan de manejo esta a un: " + percentageFulfilled + "%\nY tiene como objetivo: " + description;
+		
+	}
+	
 }

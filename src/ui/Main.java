@@ -9,9 +9,21 @@ import model.Dagma;
 
 public class Main{
 	
+	/**
+	* dagma is an object of the Dagma type to interact with the model controller and call their methods
+	* */
+	
 	private Dagma dagma = new Dagma();
 	
+	/**
+	* scan is an object of the Scanner type to read all inputs that are written by the user
+	* */
+	
 	private Scanner scan;
+	
+	/**
+	 * Constructor of main 
+	 */
 	
 	public Main(){
 		
@@ -20,7 +32,7 @@ public class Main{
 	}
 	
 	/**
-	* Description: fulfill the user requests 
+	* Description: Method Main that will call the methods from de Main Class
 	*/
 	
 	public static void main (String[] args){
@@ -37,6 +49,10 @@ public class Main{
 		
 	}
 	
+	/**
+	* Description: Method that will show the menu and read the user input
+	*/
+	
 	public int showMenu() {
 		int option=0;
 
@@ -47,13 +63,18 @@ public class Main{
 		"(4) Cantidad de mantenimientos que recibieron los humedales en algun ano \n"+
 		"(5) Humedal con menos especies de flora \n"+
 		"(6) Humedales en los que se encuentra una especie \n"+
-		"(7) Informacion sobre los humedales \n"+
+		"(7) Infromacion sobre los humedales \n"+
 		"(8) Humedal con mayor cantidad de fauna \n"+
 		"(0) Salir"
 				);
 		option= scan.nextInt();
 		return option;
 	}
+	
+	/**
+	* Description: Method that will show the menu and read the user input and will call the method that can fulfill the request
+	* @param option int that contains the choice made by the user
+	*/
 	
 	public void executeOption(int option) {
 		
@@ -90,6 +111,11 @@ public class Main{
 		
 		}
 	}
+	
+	/**
+	* Description: Method that ask the user for the inputs needed to create an object of wetland type check that the data is rigth, 
+	* to then call dagma and hiw method addWetland and tell the user if the request was fulfill or not
+	*/
 	
 	public void createWetland(){
 		
@@ -150,6 +176,14 @@ public class Main{
 			
 		}
 	}
+	
+	/**
+	* Description: Method that ask the user if he wants to add a specie tho the general data base or add an existing specie to a wetland
+	* if user picks the first choice the method will ask for the inputs needed to create an object of Specie type check that the data is rigth
+	* to then call dagma and his method addSpecie, if the user picks the second choice the method will print the wetlands registered and ask the 
+	* user to choose one, then it will shows the species registered on the general data base and ask the user to choose one, to then send the info
+	* to the dagma method addSpecieToWetland and tell the user if the request was fulfill or not
+	*/
 	
 	public void createSpecie(){
 		
@@ -254,6 +288,9 @@ public class Main{
 		}	
 	}
 	
+	/**
+	* Description: Method that ask the user for the wetland were he wants to add the event to ask for the inputs needed to create an object of Event type and send the inputs as parameters for the dagma method add event and tell the user if the request was fulfill or not
+	*/
 	
 	public void addEvent(){
 		
@@ -317,6 +354,9 @@ public class Main{
 			}
 	}
 	
+	/**
+	* Description: Method that ask the user for the wetland that we wants to consult to call the method getMaintenanceFromWetland from dagma and print his result
+	*/
 	
 	public void NumOfMaintenanceForWetland(){
 		
@@ -342,11 +382,20 @@ public class Main{
 		
 	}
 	
+	/**
+	* Description: Method that will call the method WetLandLessFlora from dagma and print his result
+	*/
+	
 	public void WetLandLessFlora(){
 		
 		System.out.println(dagma.WetLandLessFlora());
 		
 	}
+	
+	/**
+	* Description: Method that will print the species that are registered on the data base, ask the user to choose one and
+	* call the method SpecieHabitatSearcher from dagma and print his result
+	*/
 	
 	public void HabitatSearcher(){
 		
@@ -372,11 +421,19 @@ public class Main{
 		
 	}
 	
+	/**
+	* Description: Method that will call the method WetLandMostFauna from dagma and print his result
+	*/
+	
 	public void WetLandMostFauna(){
 		
 		System.out.println(dagma.WetLandMostFauna());
 		
 	}
+	
+	/**
+	* Description: Method that will call the method toString from dagma and print his result
+	*/
 	
 	public void AllWetlandsInfo(){
 		

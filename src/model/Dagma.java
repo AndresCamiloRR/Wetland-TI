@@ -6,7 +6,14 @@ package model;
 
 public class Dagma {
 	
+	/**
+	* MAX_WETLANDS is a constant of int type wich contains the max number of habitats that dagma can has
+	* */
 	private final int MAX_WETLANDS=80;
+	
+	/**
+	* MAX_SPECIES is a constant of int type wich contains the max number of species that dagma can has
+	* */
 	private final int MAX_SPECIES = 300;
 	
 	/**
@@ -14,21 +21,30 @@ public class Dagma {
 	* */
 	private WetLand[] allWetLands = new WetLand[MAX_WETLANDS];
 	
-	
 	/**
 	* allSpecies is a attribute (global variable) of Specie type which contains all the species registered
 	* */
 	private Specie[] allSpecies = new Specie[MAX_SPECIES];
 	
+	/**
+	* newEvent is a attribute of Event type
+	* */
 	private Event newEvent;
 	
+	/**
+	 * Constructor
+	 */
+	 
 	public Dagma(){
 		
 		
 		
 	};
 	
-	//EmptyIndexSpecie
+	/**
+	* Description: travels the allSpecies array looking for the first empty specie
+	* @return emptyIndex int contains the index of the first empty position
+	*/
 	
 	public int EmptyIndexSpecie(){
 		
@@ -45,7 +61,13 @@ public class Dagma {
 		
 	}
 	
-	//addSpecie
+	/**
+	* Description: add a specie to the general data base
+	* @param name String --> it must be initialized 
+	* @param scientificName String --> it must be initialized 
+	* @param migratory int --> it must be initialized 
+	* @param type int --> it must be initialized 
+	*/
 	
 	public void addSpecie(String name, String scientificName, int migratory, int type){
 		
@@ -94,7 +116,11 @@ public class Dagma {
 		
 	}
 	
-	//sameNameSpecie
+	/**
+	* Description: search in allSpecies if there's a specie with the same name that the user write
+	* @param name String --> it must be initialized 
+	* @return out boolean true if there are clones, false if it doesn't
+	*/
 	
 	public boolean SameNameSpecie(String name){
 		
@@ -114,7 +140,11 @@ public class Dagma {
 		
 	}
 	
-	//sameScientificNameSpecie
+	/**
+	* Description: search in allSpecies if there's a specie with the same scientificName that the user write
+	* @param scientificName String --> it must be initialized 
+	* @return out boolean true if there are clones, false if it doesn't
+	*/
 	
 	public boolean SameScientificNameSpecie(String scientificName){
 		
@@ -133,24 +163,12 @@ public class Dagma {
 		return out;
 		
 	}
-	
-	//SpecieExist
-	
-	public boolean SpecieExist(int specieIndex){
-		
-		boolean out=true;
-		
-		if(allSpecies[specieIndex]==null){
-			
-			out=false;
-			
-		}
-		
-		return out;
-		
-	}
 
-	//FindSpecie
+	/**
+	* Description: search in allSpecies if there's a specie with the same name that the user write to return it's index
+	* @param name String --> it must be initialized 
+	* @return index int wich contains the position were the specie is located of a -1 if the specie wasn't found
+	*/
 	
 	public int FindSpecie(String name){
 		
@@ -170,7 +188,11 @@ public class Dagma {
 		
 	}
 
-	//Search habitat for specie
+	/**
+	* Description: search for the habitats where a specie is located 
+	* @param specieIndex int
+	* @return habitatsWhereIsLocated String, returns the names of the wetlands where the specie lives
+	*/
 	
 	public String SpecieHabitatSearcher(int specieIndex){
 		
@@ -179,7 +201,10 @@ public class Dagma {
 		return habitatsWhereIsLocated;
 	}
 	
-	//SpeciesAvailable
+	/**
+	* Description: travels the allSpecies array and get the scientificName of each species to return them all in a string 
+	* @return list String, returns the scientificName of the species registered on the general data base
+	*/
 	
 	public String SpeciesAvailable(){
 		
@@ -205,7 +230,10 @@ public class Dagma {
 		
 	}
 	
-	//EmptyIndexWetland
+	/**
+	* Description: travels the allWetLands array looking for the first empty specie
+	* @return emptyIndex int contains the index of the first empty position
+	*/
 	
 	public int EmptyIndexWetland(){
 		
@@ -222,7 +250,11 @@ public class Dagma {
 		
 	}
 	
-	//FindWetland
+	/**
+	* Description: search in allWetLands if there's a wetland with the same name that the user write to return it's index
+	* @param name String --> it must be initialized 
+	* @return index int wich contains the position were the wetland is located of a -1 if the specie wasn't found
+	*/
 	
 	public int FindWetland(String name){
 		
@@ -242,7 +274,18 @@ public class Dagma {
 		
 	}
 	
-	//addWetland
+	/**
+	* Description: register a wetland in allWetLands array
+	* @param name String --> it must be initialized 
+	* @param urbanOrRural int --> it must be initialized 
+	* @param publicOrPrivate int --> it must be initialized 
+	* @param area double --> it must be initialized 
+	* @param photoUrl String --> it must be initialized 
+	* @param nameOfZone String --> it must be initialized 
+	* @param protectedArea int --> it must be initialized 
+	* @param description String --> it must be initialized 
+	* @param percentageFilled double --> it must be initialized 
+	*/
 	
 	public void addWetland(String name, int urbanOrRural, int publicOrPrivate, double area, String photoUrl, String nameOfZone, int protectedArea, String description, double percentageFilled){
 		
@@ -295,7 +338,11 @@ public class Dagma {
 		
 	}
 	
-	//SameNameWetland
+	/**
+	* Description: search in allWetLands if there's a wetland with the same name that the user write
+	* @param name String --> it must be initialized 
+	* @return out boolean true if there are clones, false if it doesn't
+	*/
 	
 	public boolean SameNameWetland(String name){
 		
@@ -315,7 +362,10 @@ public class Dagma {
 		
 	}
 	
-	//EmptyIndexInArray
+	/**
+	* Description: travels the allSpecies array looking for the first empty position
+	* @return emptyIndex int contains the index of the first empty position
+	*/
 	
 	public int EmptyEventIndexForWetland(int index){
 		
@@ -326,7 +376,13 @@ public class Dagma {
 		return emptyIndex;
 	}
 	
-	//addEvent
+	/**
+	* Description: register an event in a wetland
+	* @param dateOfEvent Date --> it must be initialized 
+	* @param typeOfEvent String --> it must be initialized 
+	* @param cost double --> it must be initialized 
+	* @param description String --> it must be initialized 
+	*/
 	
 	public void addEvent(int index, int eventType, int day, int month, int year, String owner, double cost, String description){
 		
@@ -365,6 +421,12 @@ public class Dagma {
 		}
 	}
 	
+	/**
+	* Description: returns the number of maintenance from a wetland
+	* @param indexWetland int contains the index from the wetland selected by the user
+	* @return numOfMaintenance int
+	*/
+	
 	public int getMaintenanceFromWetland(int indexWetland){
 		
 		int	numOfMaintenance = allWetLands[indexWetland].getNumOfMaintenance();
@@ -373,7 +435,10 @@ public class Dagma {
 		
 	}
 	
-	//WetlandsAvailable
+	/**
+	* Description: travels the allWetLands array and get the name of each wetland to return them all in a string 
+	* @return list String, returns the name of the wetlands registered
+	*/
 	
 	public String WetlandsAvailable(){
 		
@@ -400,7 +465,12 @@ public class Dagma {
 	}
 	
 	
-	//addSpecieToWetland
+	/**
+	* Description: add a specie selected by the user to a wetland that was also selected by the user
+	* and vice versa to add the wetland as an habitat to a specie
+	* @param name String --> it must be initialized 
+	* @param specieName String --> it must be initialized 
+	*/	
 	
 	public void addSpecieToWetland(String name, String specieName){
 		
@@ -449,6 +519,10 @@ public class Dagma {
 		return lessFlora;
 	}
 	
+	/**
+	* Description: search for the wetland with most fauna 
+	* @return LessFlora WetLand, returns the wetland with less flora
+	*/
 	public String WetLandMostFauna (){
 		
 		String mostFauna="";
@@ -476,6 +550,11 @@ public class Dagma {
 		
 		return mostFauna;
 	}
+	
+	/**
+	* Method that produces a String with the information of dagma
+	* @return String with dagma info
+	*/
 	
 	public String toString(){
 		

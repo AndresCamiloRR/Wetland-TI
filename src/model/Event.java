@@ -16,6 +16,9 @@ public class Event {
 	* */
 	private Date dateOfEvent;
 	
+	/**
+	* owner is a attribute (global variable) of String type which contains the name of the owner of the event
+	* */
 	private String owner;
 	
 	/**
@@ -28,13 +31,16 @@ public class Event {
 	* */
 	private String description;
 	
-	
-	//Constructor
-	
 	/**
-	* Description: create a Event object 
-	* <b> pos:</b> dateOfEvent, typeOfEvent, cost and description got asign
-	* @param dateOfEvent Date, typeOfEvent String, cost int, description String
+	* Description: Constructor create a Event object 
+	* <b> pos:</b> dateOfEvent --> got asign
+	* <b> pos:</b> typeOfEvent --> got asign
+	* <b> pos:</b> cost --> got asign
+	* <b> pos:</b>description --> got asign
+	* @param dateOfEvent Date --> it must be initialized 
+	* @param typeOfEvent String --> it must be initialized 
+	* @param cost double --> it must be initialized 
+	* @param description String --> it must be initialized 
 	*/
 	
 	public Event(String typeOfEvent, Date dateOfEvent, String owner, double cost, String description) {

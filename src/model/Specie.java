@@ -28,6 +28,9 @@ public class Specie {
 	* */
 	private Flora_Fauna type;
 	
+	/**
+	* MAX_WETLANDS is a constant of int type wich contains the max number of habitats that a specie can has
+	* */
 	private final int MAX_WETLANDS=80;
 	
 	/**
@@ -35,13 +38,17 @@ public class Specie {
 	* */
 	private WetLand[] habitats = new WetLand[MAX_WETLANDS];
 
-
-	//Constructor
 	
 	/**
-	* Description: create a Specie object 
-	* <b> pos:</b> name, scientificName, migratory, type and habitats got asign
-	* @param name String, scientificName String, migratory boolean, type String, habitats WetLand[]
+	* Description: Constructor create a Specie object 
+	* <b> pos:</b> name --> got asign
+	* <b> pos:</b> scientificName --> got asign
+	* <b> pos:</b> migratory --> got asign
+	* <b> pos:</b> type and habitats --> got asign
+	* @param name String --> it must be initialized 
+	* @param scientificName String --> it must be initialized 
+	* @param migratory boolean --> it must be initialized 
+	* @param type Flora_Fauna --> it must be initialized 
 	*/
 	
 	public Specie(String name, String scientificName, boolean migratory, Flora_Fauna type) {
@@ -99,11 +106,10 @@ public class Specie {
 	
 	
 	/**
-	* Description: search for the habitats where a specie is located 
-	* @param specieScientificName String, that the specieScientificName exist in the allSpecies array
+	* Description: produces a String with the names of the wetlands that are in the habitats array
 	* @return habitatsWhereIsLocated String, returns the names of the wetlands where the specie lives
 	*/
-	
+
 	public String HabitatSearcher(){
 		
 		String habitatsWhereIsLocated = "";
@@ -130,6 +136,11 @@ public class Specie {
 		return habitatsWhereIsLocated;
 	}
 	
+	/**
+	* Description: travels the habitats array looking for the first empty position
+	* @return emptyIndex int contains the index of the first empty position
+	*/
+	
 	public int EmptyHabitatIndex(){
 		
 		int emptyIndex=-1;
@@ -147,6 +158,11 @@ public class Specie {
 		return emptyIndex;
 		
 	}
+	
+	/**
+	* Description: produces a String with the names of the wetlands that are in the habitats array
+	* @param newWetland WetLand --> it must be initialized 
+	*/
 	
 	public void addHabitat(WetLand newWetland){
 		

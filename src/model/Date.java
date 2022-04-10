@@ -26,7 +26,7 @@ public class Date {
 //Constructor
 	
 	/**
-	* Description: create a Date object 
+	* Description: Constructor create a Date object 
 	* <b> pos:</b> day, month and year got asign
 	* @param day int, month int, year int
 	*/
